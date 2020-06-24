@@ -50,6 +50,6 @@ public class AppTest {
   public void iii() {
     driver.get("https://gae2-weichou99.an.r.appspot.com/");
     driver.findElement(By.cssSelector(".btn:nth-child(10)")).click();
-    assertThat(driver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定x"));
+    assertThat(driver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定"));
   }
 }
