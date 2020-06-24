@@ -35,7 +35,8 @@ public class AppTest {
     //System.setProperty("webdriver.gecko.driver", "D:\\tmp\\geckodriver-v0.26.0-win64\\geckodriver.exe");
     System.setProperty("webdriver.gecko.driver", "/home/carter/geckodriver/geckodriver");
     FirefoxOptions firefoxOptions = new FirefoxOptions();
-    firefoxOptions.setBinary("/usr/lib64/firefox/firefox");
+    //firefoxOptions.setBinary("/usr/lib64/firefox/firefox");
+    firefoxOptions.setBinary("/usr/lib/firefox/firefox.sh");
     //firefoxOptions.setBinary("D:\\tmp\\FirefoxPortable\\App\\Firefox64\\firefox.exe");
     driver = new FirefoxDriver(firefoxOptions);
     js = (JavascriptExecutor) driver;
