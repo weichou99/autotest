@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.Dimension;
@@ -26,30 +27,42 @@ import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 public class AppTest {
-  private WebDriver driver;
-  private Map<String, Object> vars;
-  JavascriptExecutor js;
+  private WebDriver firefoxDriver;
+  private WebDriver chromeDriver;
   @Before
   public void setUp() {
-    //D:\tmp\geckodriver-v0.26.0-win64\geckodriver.exe
-    //System.setProperty("webdriver.gecko.driver", "D:\\tmp\\geckodriver-v0.26.0-win64\\geckodriver.exe");
-    System.setProperty("webdriver.gecko.driver", "/home/carter/geckodriver/geckodriver");
     FirefoxOptions firefoxOptions = new FirefoxOptions();
-    //firefoxOptions.setBinary("/usr/lib64/firefox/firefox");
+    ChromeOptions chromeOptions = new ChromeOptions();
+
+//    System.setProperty("webdriver.gecko.driver", "D:\\tmp\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+//    System.setProperty("webdriver.chrome.driver", "D:\\tmp\\chromedriver_win32_79.0.3945.36\\chromedriver.exe");
+//    chromeOptions.setBinary("D:\\tmp\\ChromeTest\\App\\Chrome-bin\\chrome.exe");
+//    firefoxOptions.setBinary("D:\\tmp\\FirefoxPortable\\App\\Firefox64\\firefox.exe");
+
+    System.setProperty("webdriver.gecko.driver", "/home/carter/geckodriver/geckodriver");
+    System.setProperty("webdriver.chrome.driver", "/home/carter/chromedriver/chromedriver");
+    chromeOptions.setBinary("/opt/google/chrome/chrome");
     firefoxOptions.setBinary("/usr/lib/firefox/firefox.sh");
-    //firefoxOptions.setBinary("D:\\tmp\\FirefoxPortable\\App\\Firefox64\\firefox.exe");
-    driver = new FirefoxDriver(firefoxOptions);
-    js = (JavascriptExecutor) driver;
-    vars = new HashMap<String, Object>();
+    
+    //firefoxOptions.setBinary("/usr/lib64/firefox/firefox");
+    firefoxDriver = new FirefoxDriver(firefoxOptions);
+    chromeDriver = new ChromeDriver(chromeOptions);
   }
   @After
   public void tearDown() {
-    driver.quit();
+    firefoxDriver.quit();
+    chromeDriver.quit();
   }
   @Test
   public void iii() {
-    driver.get("https://gae2-weichou99.an.r.appspot.com/");
-    driver.findElement(By.cssSelector(".btn:nth-child(10)")).click();
-    assertThat(driver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定"));
+    firefoxDriver.get("https://gae2-weichou99.an.r.appspot.com/");
+    firefoxDriver.findElement(By.cssSelector(".btn:nth-child(10)")).click();
+    assertThat(firefoxDriver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定x"));
+  }
+  @Test
+  public void iii2() {
+    chromeDriver.get("https://gae2-weichou99.an.r.appspot.com/");
+    chromeDriver.findElement(By.cssSelector(".btn:nth-child(10)")).click();
+    assertThat(chromeDriver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定"));
   }
 }
