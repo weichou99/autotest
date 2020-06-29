@@ -57,7 +57,7 @@ public class AppTest {
   public void iii() {
     firefoxDriver.get("https://gae2-weichou99.an.r.appspot.com/");
     firefoxDriver.findElement(By.cssSelector(".btn:nth-child(10)")).click();
-    assertThat(firefoxDriver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定x"));
+    assertThat(firefoxDriver.findElement(By.cssSelector(".fade")).getText(), is("商品面頁設定"));
   }
   @Test
   public void iii2() {
