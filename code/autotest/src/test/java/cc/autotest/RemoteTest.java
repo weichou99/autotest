@@ -20,15 +20,16 @@ import org.openqa.selenium.support.ui.Sleeper;
 //遠端可以是可以執行測試的selenium-server-standalone。
 //或是hub，然後再導到node。
 public class RemoteTest {
-  
+
   private String testHost = "https://gae2-weichou99.an.r.appspot.com/";
 
   private WebDriver webDriver;
 
   @Before
   public void setUp() throws MalformedURLException {
-//    OperaOptions chromeOptions = new OperaOptions();
-//    FirefoxOptions chromeOptions = new FirefoxOptions();
+    // 要測試不同的瀏覽器，使用對應的XxxOptions就行。
+    // OperaOptions chromeOptions = new OperaOptions();
+    // FirefoxOptions chromeOptions = new FirefoxOptions();
     ChromeOptions chromeOptions = new ChromeOptions();
     webDriver = new RemoteWebDriver(new URL("http://192.168.43.195:4444/wd/hub"), chromeOptions);
   }
