@@ -16,7 +16,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Sleeper;
 
-public class AppTest3 {
+//在遠端的環境上執行測試。
+//遠端可以是可以執行測試的selenium-server-standalone。
+//或是hub，然後再導到node。
+public class RemoteTest {
   
   private String testHost = "https://gae2-weichou99.an.r.appspot.com/";
 
